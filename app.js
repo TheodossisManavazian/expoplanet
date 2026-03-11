@@ -231,7 +231,7 @@ function buildYearChart(data) {
       ticktext: tickValues.map(String)
     }),
     legend: { orientation: "h", y: -0.3, font: { color: "#ccc" } },
-    margin: { t: 10, r: 20, b: 100, l: 60 },
+    margin: { t: 10, r: 20, b: 100, l: 80 },
     height: 320,
     shapes: shapes,
     hoverlabel: {
@@ -255,6 +255,14 @@ function buildMethodChart(data) {
   });
 
   var summaries = methods.map(function (method, i) {
+    if (method === "Other") {
+      var lines = OTHER_METHODS.map(function (m) {
+        var count = data.filter(function (d) { return d.original_method === m; }).length;
+        return m + ": " + count;
+      }).filter(function (line) { return !line.endsWith(": 0"); });
+      return '<span style="color:' + METHOD_COLORS[method] + ';">&#9679;</span> '
+        + counts[i] + " planets<br>" + lines.join("<br>");
+    }
     return '<span style="color:' + METHOD_COLORS[method] + ';">&#9679;</span> '
       + counts[i] + " planets";
   });
@@ -288,7 +296,7 @@ function buildMethodChart(data) {
       tickvals: tickPositions,
       ticktext: tickValues.map(String)
     }),
-    margin: { t: 10, r: 20, b: 80, l: 60 },
+    margin: { t: 10, r: 20, b: 80, l: 80 },
     height: 300,
     hoverlabel: {
       bgcolor: "white",
@@ -353,11 +361,11 @@ function buildScatterPlot(data) {
       type: "log"
     }),
     yaxis: Object.assign({}, DARK_LAYOUT.yaxis, {
-      title: { text: "Distance in light-years (√ scale)", standoff: 7 },
+      title: { text: "Distance in light-years (√ scale)", standoff: 15 },
       tickvals: [100, 500, 1000, 2000, 5000, 10000, 20000].map(function (v) { return Math.sqrt(v); }),
       ticktext: ["100", "500", "1,000", "2,000", "5,000", "10,000", "20,000"]
     }),
-    margin: { t: 10, r: 20, b: 60, l: 60 },
+    margin: { t: 10, r: 20, b: 60, l: 80 },
     height: 450,
     hoverlabel: {
       bgcolor: "white",
