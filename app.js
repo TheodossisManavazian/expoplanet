@@ -354,8 +354,8 @@ function buildScatterPlot(data) {
     }),
     yaxis: Object.assign({}, DARK_LAYOUT.yaxis, {
       title: { text: "Distance in light-years (√ scale)", standoff: 7 },
-      tickvals: [10, 500, 1000, 2000, 5000, 10000, 20000].map(function (v) { return Math.sqrt(v); }),
-      ticktext: ["10", "50", "100", "500", "1k", "2k", "5k", "10k", "20k"]
+      tickvals: [10, 100, 500, 1000, 2000, 5000, 10000, 20000].map(function (v) { return Math.sqrt(v); }),
+      ticktext: ["10", "100", "500", "1k", "2k", "5k", "10k", "20k"]
     }),
     margin: { t: 10, r: 20, b: 60, l: 60 },
     height: 450,
