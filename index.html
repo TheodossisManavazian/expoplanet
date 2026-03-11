@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exoplanet Discovery Dashboard</title>
+
+  <!-- Plotly.js for charts, D3 for CSV parsing -->
+  <script src="https://cdn.plot.ly/plotly-2.35.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Exoplanet Discovery Dashboard</h1>
+  </header>
+
+  <div id="filter-bar" class="filter-bar hidden">
+    <span id="filter-label"></span>
+    <button id="clear-filters">Clear Filters</button>
+  </div>
+
+  <main>
+
+    <div class="top-row">
+      <div class="card" id="year-chart">
+        <h2>Planet Discoveries by Year</h2>
+        <div id="year-plot"></div>
+      </div>
+      <div class="card" id="method-chart">
+        <h2>Planet Discoveries by Method</h2>
+        <div id="method-plot"></div>
+        <p class="card-footnote">* "Other" includes: Transit Timing Variations, Eclipse Timing Variations, Orbital Brightness Modulation, Pulsar Timing, Astrometry, Pulsation Timing Variations, and Disk Kinematics.</p>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="card" id="scatter-chart">
+        <h2>Planet Orbital Period vs. Distance (light-years)</h2>
+        <div id="scatter-plot"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
