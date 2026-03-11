@@ -1,5 +1,7 @@
 # Design Notes & Decisions
 
+**Disclaimer:** I used Claude Code to help with writing the code for this. i manually checked the changes made by claude.
+
 ## Data Cleaning
 - Raw dataset has multiple rows per planet. Filtered to `default_flag = 1` → 6,137 unique planets.
 - Missing data: 1,582 missing radius (26%), 352 missing orbital period (6%), 138 missing distance (2%).
