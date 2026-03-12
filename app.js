@@ -334,7 +334,7 @@ function buildScatterPlot(data) {
         var radius = d.planet_radius !== null ? d.planet_radius + " Earth radii" : "Unknown";
         var ly = d.distance !== null ? (d.distance * 3.26156).toFixed(1) + " ly" : "Unknown";
         return d.name + "</b><br>"
-          + "Orbital Period: " + (d.orbital_period !== null ? d.orbital_period.toFixed(1) + " days" : "Unknown") + "<br>"
+          + "Orbital Period: " + (d.orbital_period !== null ? d.orbital_period.toFixed(4) + " days" : "Unknown") + "<br>"
           + "Distance: " + ly + "<br>"
           + "Radius: " + radius + "<br>"
           + "Discovered: " + d.discovery_year + "<br>"
